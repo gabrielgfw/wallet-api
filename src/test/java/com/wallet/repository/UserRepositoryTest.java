@@ -47,7 +47,7 @@ public class UserRepositoryTest {
 		User u = new User();
 		u.setName("Teste");
 		u.setPassword("123456");
-		u.setEmail("gabriel@teste");
+		u.setEmail(EMAIL);
 		
 		User response = repository.save(u);
 		
