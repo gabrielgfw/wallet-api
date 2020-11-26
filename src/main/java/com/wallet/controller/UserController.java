@@ -2,6 +2,7 @@ package com.wallet.controller;
 
 import javax.validation.Valid;
 
+import com.wallet.dto.UserDTO;
 import com.wallet.entity.User;
 import com.wallet.response.Response;
 import com.wallet.service.UserService;
@@ -25,8 +26,7 @@ public class UserController {
     public ResponseEntity<Response<UserDTO>> create(@Valid @RequestBody UserDTO dto, BindingResult result) {
 
         Response<UserDTO> response = new Response<UserDTO>();
-        service.save(this.convertDTOToEntity(dto));
-
+        User user = service.save(this.convertDTOToEntity(dto));
         response.setData(this.convertEntityToDto(user));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);

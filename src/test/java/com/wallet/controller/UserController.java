@@ -1,6 +1,8 @@
 package com.wallet.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wallet.dto.UserDTO;
 import com.wallet.entity.User;
 import com.wallet.service.UserService;
 import org.junit.runner.RunWith;
@@ -47,7 +49,7 @@ public class UserController {
         return u;
     }
 
-    public String getJsonPayload() {
+    public String getJsonPayload() throws JsonProcessingException {
         UserDTO dto = new UserDTO();
         dto.setEmail(EMAIL);
         dto.setName(NAME);
